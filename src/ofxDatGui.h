@@ -70,7 +70,10 @@ class ofxDatGui : public ofxDatGuiInteractiveObject
         ofxDatGuiValuePlotter* addValuePlotter(string label, float min, float max);
         ofxDatGuiColorPicker* addColorPicker(string label, ofColor color = ofColor::black);
         ofxDatGuiMatrix* addMatrix(string label, int numButtons, bool showLabels = false);
+		ofxDatGuiImageMatrix* addImageMatrix(string label, std::vector<std::string> imagePaths);
         ofxDatGuiFolder* addFolder(string label, ofColor color = ofColor::white);
+		ofxDatGuiImage* addImage(string label, string image);
+		ofxDatGuiImage* addImage(string label);
     
         ofxDatGuiHeader* getHeader();
         ofxDatGuiFooter* getFooter();
@@ -80,6 +83,7 @@ class ofxDatGui : public ofxDatGuiInteractiveObject
         ofxDatGuiTextInput* getTextInput(string label, string folder = "");
         ofxDatGuiColorPicker* getColorPicker(string label, string folder = "");
         ofxDatGuiMatrix* getMatrix(string label, string folder = "");
+		ofxDatGuiImageMatrix* getImageMatrix(string label, string folder = "");
         ofxDatGuiWaveMonitor* getWaveMonitor(string label, string folder = "");
         ofxDatGuiValuePlotter* getValuePlotter(string label, string folder = "");
         ofxDatGuiFolder* getFolder(string label);
@@ -141,5 +145,6 @@ class ofxDatGui : public ofxDatGuiInteractiveObject
         void on2dPadEventCallback(ofxDatGui2dPadEvent e);
         void onColorPickerEventCallback(ofxDatGuiColorPickerEvent e);
         void onMatrixEventCallback(ofxDatGuiMatrixEvent e);
+		void onImageMatrixEventCallback(ofxDatGuiImageMatrixEvent e);
 
 };

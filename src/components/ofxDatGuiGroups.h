@@ -31,6 +31,7 @@
 #include "ofxDatGuiMatrix.h"
 #include "ofxDatGuiTimeGraph.h"
 #include "ofxDatGuiImageMatrix.h"
+#include "ofxDatGuiImage.h"
 
 class ofxDatGuiGroup : public ofxDatGuiButton {
 
@@ -257,6 +258,20 @@ class ofxDatGuiFolder : public ofxDatGuiGroup{
             attachItem(button);
             return button;
         }
+
+		ofxDatGuiImage* addImage(string label, string image)
+		{
+			ofxDatGuiImage* button = new ofxDatGuiImage(label, image, mTemplate);
+			button->setStripeColor(mStripeColor);
+			button->onButtonEvent(this, &ofxDatGuiFolder::dispatchButtonEvent);
+			attachItem(button);
+			return button;
+		}
+
+		ofxDatGuiImage* addImage(string label)
+		{
+			return this->addImage(label, "");
+		}
     
         ofxDatGuiButton* addToggle(string label, bool enabled = false)
         {
